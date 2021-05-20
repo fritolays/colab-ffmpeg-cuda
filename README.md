@@ -16,7 +16,7 @@ FFmpeg build with CUDA support for Ubuntu (especially for Google Colab) with pre
 
 ```bash
 # You need to prepend a `!` to execute a shell command in Goole Colab or Jupyter
-!git clone https://github.com/rokibulislaam/colab-ffmpeg-cuda.git
+!git clone https://github.com/fritolays/colab-ffmpeg-cuda.git
 ```
 
 2. Copy all the pre-built binaries from `./colab-ffmpeg-cuda/bin/` to `/usr/bin/` (**Recommended**)
