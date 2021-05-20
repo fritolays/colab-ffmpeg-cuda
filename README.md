@@ -38,7 +38,7 @@ If you are having trouble with the pre-built binaries, buid the binaries from sc
 
 ```bash
 !chmod +x ./colab-ffmpeg-cuda/build
-./colab-ffmpeg-cuda/build --build
+!./colab-ffmpeg-cuda/build --build
 ```
 There you go, ffmpeg with the required binaries should be installed to `/usr/bin`.
 
