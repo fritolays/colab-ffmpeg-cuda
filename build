@@ -330,6 +330,16 @@ if build "x265"; then
 	build_done "x265"
 fi
 
+if build "libwebp"; then
+	download "https://github.com/webmproject/libwebp/archive/v1.2.0.tar.gz" "libwebp-1.2.0.tar.gz"
+	mkdir -p "$PACKAGES"/libwebp-1.2.0/build
+	cd "$PACKAGES"/libwebp-1.2.0/build || exit
+	execute cmake -DCMAKE_INSTALL_PREFIX="${WORKSPACE}" -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_INSTALL_BINDIR=bin -DCMAKE_INSTALL_INCLUDEDIR=include -DENABLE_SHARED=OFF -DENABLE_STATIC=ON ../
+	execute make -j $MJOBS
+	execute make install
+	build_done "libwebp"
+fi
+
 if build "fdk_aac"; then
 	download "https://sourceforge.net/projects/opencore-amr/files/fdk-aac/fdk-aac-2.0.1.tar.gz/download?use_mirror=gigenet" "fdk-aac-2.0.1.tar.gz"
 	cd "$PACKAGES"/fdk-aac-2.0.1 || exit
@@ -422,6 +432,7 @@ cd "$PACKAGES"/ffmpeg-4.3.1/ || exit
 	--enable-libvorbis \
 	--enable-libx264 \
 	--enable-libx265 \
+	--enable-libwebp \
 	--enable-runtime-cpudetect \
 	--enable-libfdk-aac \
 	--enable-avfilter \
