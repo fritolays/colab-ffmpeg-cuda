@@ -322,7 +322,7 @@ if build "x265"; then
 	download "https://github.com/videolan/x265/archive/3.4.tar.gz" "x265-3.4.tar.gz"
 	cd "$PACKAGES"/x265-*/ || exit
 	cd source || exit
-	execute cmake -DCMAKE_INSTALL_PREFIX:PATH="${WORKSPACE}" -DENABLE_SHARED:bool=off .
+	execute cmake -DCMAKE_INSTALL_PREFIX:PATH="${WORKSPACE}" -DHIGH_BIT_DEPTH=ON -DENABLE_SHARED:bool=off .
 	execute make -j $MJOBS
 	execute make install
 	sed "s/-lx265/-lx265 -lstdc++/g" "$WORKSPACE/lib/pkgconfig/x265.pc" > "$WORKSPACE/lib/pkgconfig/x265.pc.tmp"
